@@ -1,0 +1,27 @@
+{
+  "name": "rapidmod/php-application",
+  "description": "Easy to use PHP application",
+  "version" : "0.0.1-dev",
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7"
+  },
+  "authors": [
+    {
+      "name": "Rapidmod"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/rapidmod"
+    }
+  ],
+  "prefer-stable": true,
+
+  "autoload": {
+    "psr-4": {
+      "Rapidmod\\": "src/"
+    }
+  }
+}
