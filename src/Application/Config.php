@@ -5,7 +5,7 @@
  */
 
 
-namespace Rapidmod;
+namespace Rapidmod\Application;
 
 
 class Config extends \Rapidmod\Data\Model {
@@ -31,13 +31,9 @@ class Config extends \Rapidmod\Data\Model {
 		                            .DIRECTORY_SEPARATOR."config".DIRECTORY_SEPARATOR;
 		clearstatcache();
 		if(file_exists($this->package_config_dir.$key.".php")){
-			$configuration = "";
-			include($this->package_config_dir.$key.".php");
+			$configuration = include($this->package_config_dir.$key.".php");
 			$this->setConfig($configuration);
 		}
-
-
-
 		return parent::_get($key);
 
 	}
@@ -53,12 +49,23 @@ class Config extends \Rapidmod\Data\Model {
 		}
 	}
 
+	/**
+	 *
+	 * Name setConfig
+	 * @return *
+	 * @param $configuration
+	 * @return $this
+	 * @static
+	 * @throws
+	 *
+	 * @author RapidMod.com
+	 * @author 813.330.0522
+	 *
+	 * @todo override _set() and create reserved keys functionality
+	 */
 	public function setConfig($configuration){
-		if(is_array($configuration) && !empty($configuration)){
-			foreach($configuration as $k => $v){
-				$this->_set( $k, $v );
-			}
-			return true;
-		}else {return false;}
+		if(empty($configuration) || !is_array($configuration) || !is_object($configuration)){return $this;}
+		foreach($configuration as $k => $v){ $this->{$k} = $v; }
+		return $this;
 	}
 }

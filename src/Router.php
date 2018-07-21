@@ -9,7 +9,6 @@ use \Rapidmod\Params;
  *
  * @author RapidMod.com
  * @author 813.330.0522
- * @TODO: Refer to router 0.0.3 for additional routing options
  */
 
 class Router Extends \Rapidmod\Data\Model {

@@ -1,7 +1,7 @@
 <?php
 namespace Rapidmod;
 class Session {
-	private static $_seskey = "RCORE";
+	private static $_seskey = "RAPIDMOD_";
 	public static function _get($key){
 		self::init();
 		if(isset($_SESSION[self::$_seskey][$key])){
